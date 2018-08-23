@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import CardBlock from  '../CardBlock/CardBlock';
+import { connect } from "react-redux";
 import './style.css';
 
 class CardList extends Component {
-    constructor(props) {
-        super(props);
+
+    handleCardClick = (event) => {
+        console.log(event)
+        this.props.toggleCard();
+        console.log(this.props)
     }
     createList = (list) => {
         let row = [];
-        const maxi = list.length;
-        for (let i = 0; i < maxi; i++) {
-            row.push(<CardBlock key={i} id={list[i]}/>)
-        }
+        list.map((item, index)=> {
+            row.push(<CardBlock key={index} id={item} />);
+        });
 
         return row;
     }
@@ -24,4 +27,11 @@ class CardList extends Component {
     }
 }
 
-export default CardList;
+function mapStateToProps(state) {
+    return {
+        state
+    }
+}
+
+
+export default connect(mapStateToProps)(CardList);

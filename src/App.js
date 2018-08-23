@@ -14,7 +14,7 @@ class App extends Component {
       generated_row: []
     }
   }
-  handleClick = (event) => {
+  handleClick = () => {
     this.setState({
       generated_row: this.shakeRow(basic_row),
       started: true
