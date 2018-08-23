@@ -2,17 +2,20 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { toggleCard } from "../../actions";
 import './style.css';
+
 class CardBlock extends Component {
     handleCardClick = (event) => {
-        console.log(this.props)
-        this.props.toggleCard(this.props.id)
+        console.dir(event.currentTarget)
+        event.currentTarget.className = event.currentTarget.className + ' shown';
+        this.props.toggleCard(this.props.id, this.props.index);
     }
     render() {
         this.defaults = {
-            class: 'card hided',
+            class: 'card',
         }
         return (
             <div
+                id={"card" + this.props.index}
                 className={(this.props.class) ? this.props.class : this.defaults.class}
                 onClick={this.handleCardClick.bind(this)}>
                 {this.props.id}
@@ -21,10 +24,10 @@ class CardBlock extends Component {
     }
 }
 const mapStateToProps = state => ({
-    state
+    propstate: state
 });
 const mapDispatchToProps = dispatch => ({
-    toggleCard: (id) => dispatch(toggleCard(id))
+    toggleCard: (id, index) => dispatch(toggleCard(id, index))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CardBlock);

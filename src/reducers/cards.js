@@ -6,6 +6,11 @@ export default (state = [], action) => {
                 ...state,
                 id: action.id
             }
+        case 'CARD_ADD':
+            return {
+                ...state,
+                node_id: action.node_id
+            }
         default:
             return state;
     }

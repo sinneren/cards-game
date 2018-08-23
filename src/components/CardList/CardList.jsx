@@ -1,19 +1,12 @@
 import React, { Component } from 'react';
 import CardBlock from  '../CardBlock/CardBlock';
-import { connect } from "react-redux";
 import './style.css';
 
 class CardList extends Component {
-
-    handleCardClick = (event) => {
-        console.log(event)
-        this.props.toggleCard();
-        console.log(this.props)
-    }
     createList = (list) => {
         let row = [];
         list.map((item, index)=> {
-            row.push(<CardBlock key={index} id={item} />);
+            row.push(<CardBlock key={index} id={item} index={index} />);
         });
 
         return row;
@@ -27,11 +20,4 @@ class CardList extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    return {
-        state
-    }
-}
-
-
-export default connect(mapStateToProps)(CardList);
+export default CardList;

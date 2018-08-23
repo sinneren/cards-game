@@ -14,11 +14,12 @@
 //         return false;
 //     }
 // }
-export function toggleCard (id) {
+export function toggleCard (id, index) {
     return dispatch => {
         dispatch({
             type: 'CARD_CLICK',
-            id: id
+            id: id,
         });
+
     }
 }
