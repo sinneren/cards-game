@@ -8,3 +8,6 @@ html, body {
 .wrapper {
   height: 100%;
 }
+.is-hidden {
+  display: none;
+}

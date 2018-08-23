@@ -1,0 +1,18 @@
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24%;
+    height: 32%;
+    background-color: #8FB3E4;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: box-shadow 300ms ease-in;
+}
+.card:hover {
+    box-shadow: 0 2px 2px #453A6C;
+}
+.card.shown {
+    background-color: #FEFEFE;
+    color: #453A6C;
+}
