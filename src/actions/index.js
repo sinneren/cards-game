@@ -14,11 +14,22 @@
 //         return false;
 //     }
 // }
-export function toggleCard (id, index) {
+export function toggleCard(id, index) {
     return dispatch => {
         dispatch({
             type: 'CARD_CLICK',
             id: id,
+            node_id: index
+        });
+
+    }
+}
+export function flushCard(old_card, new_card) {
+    return dispatch => {
+        dispatch({
+            type: 'CARD_FLUSH',
+            old: old_card,
+            new: new_card
         });
 
     }

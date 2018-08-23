@@ -5,7 +5,6 @@ import './style.css';
 
 class CardBlock extends Component {
     handleCardClick = (event) => {
-        console.dir(event.currentTarget)
         event.currentTarget.className = event.currentTarget.className + ' shown';
         this.props.toggleCard(this.props.id, this.props.index);
     }

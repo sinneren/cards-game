@@ -4,12 +4,14 @@ export default (state = [], action) => {
         case 'CARD_CLICK':
             return {
                 ...state,
-                id: action.id
+                id: action.id,
+                node_id: action.node_id
             }
-        case 'CARD_ADD':
+        case 'CARD_FLUSH':
             return {
                 ...state,
-                node_id: action.node_id
+                old: action.old,
+                new: action.new
             }
         default:
             return state;
