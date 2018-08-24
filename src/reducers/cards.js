@@ -1,6 +1,7 @@
 const defaultState = {
     id: '',
-    node_id: ''
+    node_id: '',
+    card_id: []
 }
 export default (state = defaultState, action) => {
     switch (action.type) {

@@ -7,3 +7,4 @@ export function toggleCard(id, index) {
         });
     }
 }
+

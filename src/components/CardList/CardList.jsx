@@ -8,8 +8,10 @@ class CardList extends Component {
         super(props);
         this.state = {
             id: '',
-            node_id: ''
+            node_id: '',
+            win: false
         }
+        this.count_pare_list = this.props.list.length / 2;
     }
     createList = (list) => {
         let row = [];
@@ -19,7 +21,6 @@ class CardList extends Component {
                 key={index}
                 id={item}
                 index={index}
-                classname={(this.state.node_id === index) ? "shown" : ""}
             />);
         });
 

@@ -9,6 +9,7 @@ class CardBlock extends Component {
         this.state = {
             id: '',
             node_id: '',
+            node: ''
         }
     }
     handleCardClick = (event) => {
@@ -31,9 +32,10 @@ class CardBlock extends Component {
     }
 
     render() {
+        const class_name = (this.props.classname !== undefined) ? "card " + this.props.classname : "card"
         return (
             <div
-                className={"card " + this.props.classname}
+                className={class_name}
                 onClick={this.handleCardClick.bind(this)}>
                 <span className="card-text">{this.props.id}</span>
             </div>
@@ -44,7 +46,6 @@ const mapStateToProps = state => ({
     state: state.cards
 });
 const mapDispatchToProps = dispatch => ({
-    toggleCard: (id, index) => dispatch(toggleCard(id, index)),
-});
+    toggleCard: (id, index) => dispatch(toggleCard(id, index))});
 
 export default connect(mapStateToProps, mapDispatchToProps)(CardBlock);
