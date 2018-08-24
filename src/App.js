@@ -3,7 +3,7 @@ import './App.css';
 import Button from './components/Button/Button';
 import CardList from './components/CardList/CardList';
 
-const basic_row = [1, 2, 3, 4, 1, 2, 3, 4];
+let basic_row = [];
 
 class App extends Component {
   constructor() {
@@ -15,6 +15,11 @@ class App extends Component {
     }
   }
   handleClick = () => {
+    let maxi = Math.floor(Math.random() * 13) + 4;
+    for (let i = 0; i < maxi; i++) {
+      basic_row.push(i);
+    }
+    basic_row = [...basic_row, ...basic_row];
     this.setState({
       generated_row: this.shakeRow(basic_row),
       started: true
