@@ -16,3 +16,12 @@
     background-color: #FEFEFE;
     color: #453A6C;
 }
+.card-text {
+    display: none;
+    font-size: 32px;
+    font-weight: bold;
+    color: #453A6C;
+}
+.card.shown .card-text {
+    display: block;
+}
