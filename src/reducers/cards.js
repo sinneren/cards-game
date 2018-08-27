@@ -20,7 +20,7 @@ export default (state = defaultState, action) => {
         case 'CARD_WIN':
             return {
                 ...state,
-                finish: !state.finish,
+                finish: true,
             }
         default:
             return state;

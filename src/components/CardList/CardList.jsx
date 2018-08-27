@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import CardBlock from  '../CardBlock/CardBlock';
-import { connect } from "react-redux";
-import { finishGame } from "../../actions";
+
 import './style.css';
 
 class CardList extends Component {
@@ -29,11 +28,7 @@ class CardList extends Component {
     componentWillMount () {
         this.list = this.createList(this.props.list);
     }
-    componentWillUpdate () {
-        if (!this.props.state.finish && (this.props.state.cards_matched === this.props.list.length / 2)) {
-            this.props.finishGame();
-        }
-    }
+
     render() {
         return (
             <div className="Cards-Wrapper">
@@ -42,10 +37,5 @@ class CardList extends Component {
         );
     }
 }
-const mapStateToProps = state => ({
-    state: state.cards
-});
-const mapDispatchToProps = dispatch => ({
-    finishGame: () => dispatch(finishGame())
-});
-export default connect(mapStateToProps, mapDispatchToProps)(CardList);
+
+export default CardList;
