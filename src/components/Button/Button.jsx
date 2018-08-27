@@ -5,7 +5,7 @@ class Button extends Component {
     render() {
         this.defaults = {
             class: 'button',
-            text: 'Button Text'
+            text: 'Button Text',
         }
         return (
             <button

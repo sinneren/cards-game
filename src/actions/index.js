@@ -29,3 +29,10 @@ export function finishGame() {
         });
     }
 }
+export function newGame() {
+    return dispatch => {
+        dispatch({
+            type: 'NEW_GAME',
+        });
+    }
+}

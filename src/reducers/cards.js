@@ -22,6 +22,10 @@ export default (state = defaultState, action) => {
                 ...state,
                 finish: true,
             }
+        case 'NEW_GAME':
+            return {
+                ...defaultState,
+            }
         default:
             return state;
     }
