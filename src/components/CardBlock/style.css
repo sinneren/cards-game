@@ -2,16 +2,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 15%;
-    height: 32%;
-    background-color: #8FB3E4;
+    width: 22%;
+    height: 14%;
+    max-height: 200px;
+    background-color: #5AADD3;
     border-radius: 5px;
     cursor: pointer;
     transition: 0.6s;
 	transform-style: preserve-3d;
 }
 .card:hover {
-    box-shadow: 0 2px 2px #453A6C;
+    box-shadow: 0 2px 2px #B97019 ;
 }
 .card.shown {
     background-color: #FEFEFE;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { toggleCard } from "../../actions";
+import { toggleCard, addMatch } from "../../actions";
 import './style.css';
 
 class CardBlock extends Component {
@@ -26,6 +26,7 @@ class CardBlock extends Component {
                 event.currentTarget.parentNode.children[this.props.state.node_id].classList.remove('shown');
             } else if (this.props.state.id === this.props.id) {
                 event.currentTarget.classList.add('shown');
+                this.props.addMatch(this.props.index);
                 this.props.toggleCard('', '');
             }
         }
@@ -46,6 +47,8 @@ const mapStateToProps = state => ({
     state: state.cards
 });
 const mapDispatchToProps = dispatch => ({
-    toggleCard: (id, index) => dispatch(toggleCard(id, index))});
+    toggleCard: (id, index) => dispatch(toggleCard(id, index)),
+    addMatch: (id) => dispatch(addMatch(id))
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(CardBlock);

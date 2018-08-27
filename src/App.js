@@ -15,7 +15,7 @@ class App extends Component {
     }
   }
   handleClick = () => {
-    let maxi = Math.floor(Math.random() * 13) + 4;
+    let maxi = Math.floor(Math.random() * 2) + 4;
     for (let i = 0; i < maxi; i++) {
       basic_row.push(i);
     }
@@ -36,7 +36,6 @@ class App extends Component {
       return Math.random() - 0.5;
     });
   }
-
   render() {
     return (
       <div className="App">

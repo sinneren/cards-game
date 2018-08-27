@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CardBlock from  '../CardBlock/CardBlock';
 import { connect } from "react-redux";
+import { finishGame } from "../../actions";
 import './style.css';
 
 class CardList extends Component {
@@ -9,27 +10,34 @@ class CardList extends Component {
         this.state = {
             id: '',
             node_id: '',
-            win: false
         }
-        this.count_pare_list = this.props.list.length / 2;
+        this.list = [];
     }
     createList = (list) => {
         let row = [];
 
-        list.map((item, index)=> {
-            row.push(<CardBlock
-                key={index}
-                id={item}
-                index={index}
-            />);
-        });
+        for (let i = 0, maxi = list.length; i < maxi; i++) {
+            row[i] = <CardBlock
+                key={i}
+                index={i}
+                id={list[i]}
+            />;
+        }
 
         return row;
+    }
+    componentWillMount () {
+        this.list = this.createList(this.props.list);
+    }
+    componentWillUpdate () {
+        if (!this.props.state.finish && (this.props.state.cards_matched === this.props.list.length / 2)) {
+            this.props.finishGame();
+        }
     }
     render() {
         return (
             <div className="Cards-Wrapper">
-               {this.createList(this.props.list)}
+                {this.list}
             </div>
         );
     }
@@ -37,5 +45,7 @@ class CardList extends Component {
 const mapStateToProps = state => ({
     state: state.cards
 });
-
-export default connect(mapStateToProps)(CardList);
+const mapDispatchToProps = dispatch => ({
+    finishGame: () => dispatch(finishGame())
+});
+export default connect(mapStateToProps, mapDispatchToProps)(CardList);
