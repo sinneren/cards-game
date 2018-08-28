@@ -4,9 +4,6 @@ import { toggleCard, addMatch } from "../../actions";
 import './style.css';
 
 class CardBlock extends Component {
-    constructor(props) {
-        super(props);
-    }
     handleCardClick = (event) => {
         if (event.currentTarget.classList.contains('shown')) {
             event.preventDefault();
