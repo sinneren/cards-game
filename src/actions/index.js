@@ -7,6 +7,15 @@ export function toggleCard(id, index) {
                 node_id: index,
             },
         });
+        setTimeout(() => {
+            dispatch({
+                type: 'CARD_MATCH',
+                payload: {
+                    id: id,
+                    node_id: index,
+                },
+            });
+        }, 700);
     }
 }
 export function addMatch(id) {
@@ -19,20 +28,20 @@ export function addMatch(id) {
         });
     }
 }
-export function finishGame() {
-    return dispatch => {
-        dispatch({
-            type: 'CARD_WIN',
-            payload: {
-                finish: true,
-            },
-        });
-    }
-}
 export function newGame() {
     return dispatch => {
         dispatch({
             type: 'NEW_GAME',
+        });
+    }
+}
+export function setList(list) {
+    return dispatch => {
+        dispatch({
+            type: 'SET_LIST',
+            payload: {
+                list: list,
+            }
         });
     }
 }
