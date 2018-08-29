@@ -6,7 +6,6 @@ import { connect } from "react-redux";
 import { newGame, setList } from "./actions";
 import './App.css';
 
-let basic_row = [];
 
 class App extends Component {
   constructor() {
@@ -16,7 +15,8 @@ class App extends Component {
     }
   }
   handleClick = () => {
-    let maxi = Math.floor(Math.random() * 7) + 4;
+    let basic_row = [];
+    let maxi = Math.floor(Math.random() * (8 - 4 + 1) + 4);;
     for (let i = 0; i < maxi; i++) {
       basic_row.push({
         id: i,
